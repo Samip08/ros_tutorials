@@ -29,17 +29,18 @@ class pcp(Node):
             angle += 2 * pi
         return angle
 
-    def move_88(self):
-        self.get_logger().info("working inside the function")
-        ox, oy = 8.0, 8.0
-        distance = sqrt((self.cx - ox)**2 + (self.cy - oy)**2)
-        target_angle = atan2(oy - self.cy, ox - self.cx)
-        angle_error = self.normalize_angle(target_angle - self.current_theta)
+    # def move_88(self):
+    #     self.get_logger().info("working inside the function")
+    #     ox, oy = 8.0, 8.0
+    #     distance = sqrt((self.cx - ox)**2 + (self.cy - oy)**2)
+    #     target_angle = atan2(oy - self.cy, ox - self.cx)
+    #     angle_error = self.normalize_angle(target_angle - self.current_theta)
 
-        twist2 = Twist()
-        twist2.angular.z = 4 * angle_error
-        twist2.linear.x = 1.5 * distance
-        self.publisher.publish(twist2)
+    #     twist2 = Twist()
+    #     twist2.angular.z = 4 * angle_error
+    #     twist2.linear.x = 1.5 * distance
+    #     self.publisher.publish(twist2)
+    #doesnt even get called after the circle finishes
 
 
     def my_publisher(self):
